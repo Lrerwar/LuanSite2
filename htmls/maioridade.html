@@ -5,16 +5,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+
+    <style>
+fieldset{
+  width: 19.5%;
+}
+
+
+    </style>
 </head>
 <body>
-    <h style="color: white;">você é maior de idade?</h1>
+
+<fieldset>
+  <legend style="color: white;">você é maior de idade?</legend>
+   
     <input type="number" id="idade" placeholder="informe idade">
     <button onclick="gravar()">Verificar</button>
+  </fieldset>
 
-
-    <script>
-
-        
+    <script>      
 function gravar(){
           
     let ipIdade = document.getElementById("idade") 
