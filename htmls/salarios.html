@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <fieldset>
+        <h style="color: white;">informe cargo e salario</h1>
+            <input type="number" id="cargo" placeholder="cargo">
+            <input type="number" id="salario" placeholder="salario">
+         <button onclick="aumento()">Calcular aumento</button>
+          </fieldset>
+
+          <script>
+          function aumento(){
+                          
+            let cargo = document.getElementById("cargo") 
+            let salario = document.getElementById("salario") 
+           
+            let imc =parseFloat(peso.value/ (altura.value * altura.value) )
+            
+
+                  if(peso.value == ''){
+                    alert("Informe peso")
+                    nota1.focus()
+                               
+                  }else if(altura.value == ''){
+                    alert("Informe altura")
+                    nota2.focus()
+                               
+                  }else if(altura.value >2.5){
+                    alert("altura invalida talvez falte a virgula ")
+                    nota2.focus()
+                } else if(imc <17){
+                    alert("Muito abaixo do peso")    
+                  }else if(imc <18.4){
+                    alert("Abaixo do peso")    
+                  }else if(imc <24.9){
+                    alert("Peso normal")    
+                  }else if(imc <29.9){
+                    alert("Acima do peso")    
+                  }else if(imc <34.9){
+                    alert("Obesidade I")    
+                  }
+
+                  
+                  
+                  
+                  
+                }
+            </script>
+
+</body>
+</html>
