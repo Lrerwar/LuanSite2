@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h style="color: white;">quais são suas notas</h1>
+        <input type="number" id="nota1" placeholder="informe nota1">
+        <input type="number" id="nota2" placeholder="informe nota2">
+        <input type="number" id="nota3" placeholder="informe nota3">
+
+        <h style="color: white;">qual é sua frequencia</h1>
+
+
+        <input type="number" id="frequencia" placeholder="frequencia">
+        <button onclick="gravar()">Verificar</button>
+
+
+        <script>
+
+        
+            function gravar(){
+                      
+                let nota1 = document.getElementById("nota1") 
+                let nota2 = document.getElementById("nota2") 
+                let nota3 = document.getElementById("nota3") 
+                let frequencia = document.getElementById("frequencia")
+                
+                let media =parseFloat(nota1.value + nota2.value + nota3.value)
+                
+
+                      if(nota1.value == ''){
+                        alert("Informe nota")
+                        nota1.focus()
+                                   
+                      }else if(nota2.value == ''){
+                        alert("Informe nota")
+                        nota2.focus()
+                                   
+                      }else if(nota3.value == ''){
+                        alert("Informe nota")
+                        nota3.focus()
+                                
+                      }
+                      else if(frequencia.value == ''){
+                        alert("Informe frequencia")
+                        frequencia.focus()
+                                
+                      }
+                      
+                    
+                      if (media>=7 && frequencia.value >= 75 ){
+                        alert("passou de ano")
+                      }else if (media <7 || frequencia.value < 75 ){
+                        alert ("reprovado")
+                      }
+                      
+                      
+                      
+                    }
+                </script>
+</body>
+</html>

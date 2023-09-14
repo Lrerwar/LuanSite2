@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h style="color: white;">você é maior de idade?</h1>
+    <input type="number" id="idade" placeholder="informe idade">
+    <button onclick="gravar()">Verificar</button>
+
+
+    <script>
+
+        
+function gravar(){
+          
+    let ipIdade = document.getElementById("idade") 
+          if(ipIdade.value == ''){
+            alert("Informe idade")
+            ipIdade.focus()
+                       
+          }else if(ipIdade.value >= 18){
+            alert("você é maior de idade")
+            
+          }else if(ipIdade.value < 18){
+            alert("você é menor de idade")
+            return
+          }
+        }
+    </script>
+</body>
+</html>
