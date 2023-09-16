@@ -10,7 +10,7 @@
     
     <fieldset>
         <h style="color: white;">informe cargo e salario</h1>
-            <input type="number" id="cargo" placeholder="cargo">
+            <input type="text" id="cargo" placeholder="cargo">
             <input type="number" id="salario" placeholder="salario">
          <button onclick="aumento()">Calcular aumento</button>
           </fieldset>
@@ -21,31 +21,32 @@
             let cargo = document.getElementById("cargo") 
             let salario = document.getElementById("salario") 
            
-            let imc =parseFloat(peso.value/ (altura.value * altura.value) )
-            
+           
 
-                  if(peso.value == ''){
-                    alert("Informe peso")
-                    nota1.focus()
+                  if(cargo.value == ''){
+                    alert("Informe cargo")
+                    cargo.focus()
+
                                
-                  }else if(altura.value == ''){
-                    alert("Informe altura")
-                    nota2.focus()
+                  }else if(salario.value == ''){
+                    alert("Informe salario")
+                    salario.focus()
                                
-                  }else if(altura.value >2.5){
-                    alert("altura invalida talvez falte a virgula ")
-                    nota2.focus()
-                } else if(imc <17){
-                    alert("Muito abaixo do peso")    
-                  }else if(imc <18.4){
-                    alert("Abaixo do peso")    
-                  }else if(imc <24.9){
-                    alert("Peso normal")    
-                  }else if(imc <29.9){
-                    alert("Acima do peso")    
-                  }else if(imc <34.9){
-                    alert("Obesidade I")    
+                  }else if(cargo.value == "Gerente" || cargo.value == "gerente"){
+                    alert("cargo: " + cargo.value + "\n" + "salario: " + salario.value + "\nalmento: 5%" + "\nnovo salario: " + (salario.value * 1.05))
+
+                
+                  }else if(cargo.value == "Supervisor" || cargo.value == "supervisor"){
+                    alert("cargo: " + cargo.value + "\n" + "salario: " + salario.value + "\nalmento: 8%" + "\nnovo salario: " + (salario.value * 1.08))
+                  }else if(cargo.value == "operador" || cargo.value == "Operador"){
+                    alert("cargo: " + cargo.value + "\n" + "salario: " + salario.value + "\nalmento: 9%" + "\nnovo salario: " + (salario.value * 1.09))
+                  }else{
+                    alert("cargo: " + cargo.value + "\n" + "salario: " + salario.value + "\nalmento: 10%" + "\nnovo salario: " + (salario.value * 1.10))
                   }
+                  
+                  
+                  
+                    
 
                   
                   
