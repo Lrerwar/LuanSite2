@@ -10,7 +10,9 @@
 fieldset{
   width: 19.5%;
 }
-
+h2{
+  color: white;
+}
 
     </style>
 </head>
@@ -25,20 +27,27 @@ fieldset{
 
     <script>      
 function gravar(){
-          
+  
     let ipIdade = document.getElementById("idade") 
           if(ipIdade.value == ''){
             alert("Informe idade")
             ipIdade.focus()
                        
           }else if(ipIdade.value >= 18){
+            document.write("<h2 id="h2">você é maior de idade</h2>")
+            document.getElementById("h2").style.color = "white";
+            
             alert("você é maior de idade")
             
           }else if(ipIdade.value < 18){
+            document.write("<h2 >você é menor de idade</h2>")
+            document.getElementById("h2").style.color = "white";
             alert("você é menor de idade")
             return
           }
         }
     </script>
+
+  
 </body>
 </html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="carregar()">Carregar</button>
+    <hr>
+    <ul>
+        <!--Pegar os dados do array-->
+    </ul>
+    
+
+    <script>
+        var frutas = ["maça","pera","tangerina","bergamota"]
+       
+
+        function carregar(){
+            var size = frutas.length
+            var itens = ''
+            for(let i = 0; i < size; i++){
+               itens += `<li style="color: white;">${frutas[i]}</li>`
+            }
+            document.getElementsByTagName('ul')[0].innerHTML = itens
+        }
+    </script>
+</body>
+</html>
