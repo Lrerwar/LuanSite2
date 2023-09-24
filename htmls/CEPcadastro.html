@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container">
+        <h1 class="text-center">Cadastro de clientes</h1>
+        <div class="col-8">
+            <label for="cep" class="form-label">Informe cep</label>
+            <input type="text" id="cep" placeholder="Informe cep"
+            onblur="preencherEndereco()" class="form-control"
+            >
+
+            <label for="rua" class="form-label">Informe rua</label>
+            <input type="text" id="rua" placeholder="Informe rua"
+            class="form-control"
+            >
+
+            <label for="rua" class="form-label">bairro</label>
+            <input type="text" id="bairro" placeholder="Informe bairro"
+            class="form-control"
+            >
+
+            <label for="complemento" class="form-label">complemento</label>
+            <input type="text" id="complemento" placeholder="Informe complemento"
+            class="form-control"
+            >
+
+            <label for="ddd" class="form-label">ddd</label>
+            <input type="text" id="ddd" placeholder="ddd"
+            class="form-control"
+            >
+            <label for="localidade" class="form-label">localidade</label>
+            <input type="text" id="localidade" placeholder="localidade"
+            class="form-control"
+            >
+
+            <label for="uf" class="form-label">uf</label>
+            <input type="text" id="uf" placeholder="uf"
+            class="form-control"
+            >
+
+        </div>
+    </div>
+
+    <script>
+        function preencherEndereco(){
+            let cep = document.getElementById('cep').value
+            fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            .then((dados) => dados.json())
+            .then((response) => {
+                console.log(response)
+               document.getElementById('rua').value = response.logradouro  
+               document.getElementById('bairro').value = response.bairro   
+               document.getElementById('complemento').value = response.complemento 
+               document.getElementById('ddd').value = response.ddd 
+               document.getElementById('localidade').value = response.localidade
+               document.getElementById('uf').value = response.uf
+            })
+            .catch((erro) => console.log(erro))
+        }
+    </script>
+</body>
+</html>

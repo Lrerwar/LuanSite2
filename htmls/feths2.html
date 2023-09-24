@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+<div>
+    <input type="number" id="a" placeholder="quantas images">
+    <button onclick="colocarFoto()">mostrar foto </button>
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+    <img class="img" src="" alt="gato" width="200px">
+</div>
+ 
+</body>
+
+<script>
+    function colocarFoto() {
+        let image = document.getElementsByClassName('img')
+        let Qimg = document.getElementById('a').value 
+       
+        fetch(`https://api.thecatapi.com/v1/images/search?limit=10`)
+            .then((dados) => dados.json())
+            .then((response) => {
+              var i = 0;
+              if(Qimg <=10){  
+                  
+                  
+                  while (i < Qimg){
+                      document.getElementsByClassName('img')[i].src = response[i].url
+                      console.log("a")
+                      i++
+                    }
+                }else {alert("numero maximo 10")}
+            })
+    }
+
+
+</script>
+
+</html>
