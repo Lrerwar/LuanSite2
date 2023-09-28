@@ -48,20 +48,27 @@
     </div>
 
     <script>
-        function preencherEndereco(){
-            let cep = document.getElementById('cep').value
-            fetch(`https://viacep.com.br/ws/${cep}/json/`)
-            .then((dados) => dados.json())
-            .then((response) => {
-                console.log(response)
+
+        
+        async function preencherEndereco(){
+             try{
+            let cep = await document.getElementById('cep').value
+
+            dados = await fetch(`https://viacep.com.br/ws/${cep}/json/`)
+            response = await dados.json()
+            
+                
                document.getElementById('rua').value = response.logradouro  
                document.getElementById('bairro').value = response.bairro   
                document.getElementById('complemento').value = response.complemento 
                document.getElementById('ddd').value = response.ddd 
                document.getElementById('localidade').value = response.localidade
                document.getElementById('uf').value = response.uf
-            })
-            .catch((erro) => console.log(erro))
+            
+             }   
+               catch{
+                   alert("a")
+                }
         }
     </script>
 </body>

@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div>
+        <input type="number" id="a" placeholder="numero">
+        <button onclick="colocarNum()">inserir </button>
+        <button onclick="Ordenar(numerosVar)">ordem crescente</button>
+        <button onclick=" mostrarArray(numeros)">ordem de adicionada</button>
+        <button onclick=" OrdenarDecresente(numerosVar)">ordem decrescente</button>
+        <br>
+
+        <p>
+            aaaaaaa
+        </p>
+
+    </div>
+
+    <div>
+        <input type="number" id="numeroProcurado" placeholder="numero">
+        <button onclick="mostarPosicao()">pesquisar </button>
+    </div>
+    <div class="col-4">
+        <input type="text" 
+        class="form-control" id="resultado" readonly>
+       </div>  
+
+
+       <hr>
+       <div class="row">
+           <h2 class="text-center mb-3">Excluir um numero</h2>
+          <div class="col-4">
+           <input type="text" id="numeroExcluir" class="form-control mb-2" placeholder="informe numero que deseja excluir" />
+          </div>
+           
+          <div class="col-3">
+              <button onclick="excluir()" class="btn btn-primary">Excluir</button>
+          </div>  
+
+          
+                     
+       </div>
+
+       <hr>
+       <div class="row">
+           <h2 class="text-center mb-3">Editar um numero</h2>
+          <div class="col-4">
+           <input type="text" id="numeroTroca" class="form-control mb-2" placeholder="informe numero que deseja trocar" />
+           <input type="text" id="numeroNovo" class="form-control mb-2" placeholder="informe novo numero" />
+          </div>
+           
+          <div class="col-3">
+              <button onclick="numeroTrocaF()" class="btn btn-primary">tocar</button>
+          </div>  
+
+          
+                     
+       </div>
+</body>
+
+<script>
+    var numeros = []
+    var numerosVar = []
+    var posisao = 0
+
+    function numeroTrocaF(){
+        let posicao = pesquisar(numeroTroca.value)
+
+        numeros[posicao] = document.getElementById('numeroNovo').value
+        numerosVar[posicao] = document.getElementById('numeroNovo').value
+
+        mostrarArray(numeros)
+
+           
+    }
+
+    function colocarNum() {
+
+        var num = parseInt(document.getElementById('a').value)
+
+        if (isNaN(num)) {
+            alert("erro")
+
+        } else {
+
+            numerosVar[posisao] = num
+            numeros[posisao] = num
+            posisao += 1
+
+            mostrarArray(numerosVar)
+        }
+    }
+
+    function mostrarArray(array) {
+
+        let size = array.length
+        let linhas = ''
+        for (let i = 0; i < size; i++) {
+
+            if(array[i] == undefined){
+                
+            }else{
+            linhas += `${array[i]}, `}
+        }
+        document.getElementsByTagName('p')[0].innerHTML = linhas
+
+    }
+
+    function Ordenar(array) {
+
+        var trocou = new Boolean(true)
+
+        while (trocou) {
+
+            trocou = false;
+
+            for (var i = 0; i < numerosVar.length - 1; i++) {
+
+                if (numerosVar[i] > numerosVar[i + 1]) {
+                    var memoria = numerosVar[i];
+                    numerosVar[i] = numerosVar[i + 1];
+                    numerosVar[i + 1] = memoria;
+                    trocou = true;
+                }
+            }
+
+        }
+
+
+
+
+        mostrarArray(array)
+    }
+
+
+    function OrdenarDecresente(array) {
+
+        var trocou = new Boolean(true)
+
+        while (trocou) {
+
+            trocou = false;
+
+            for (var i = 0; i < numerosVar.length - 1; i++) {
+
+                if (numerosVar[i] < numerosVar[i + 1]) {
+                    var memoria = numerosVar[i];
+                    numerosVar[i] = numerosVar[i + 1];
+                    numerosVar[i + 1] = memoria;
+                    trocou = true;
+                }
+            }
+
+        }
+
+
+
+
+        mostrarArray(array)
+    }
+
+    function Desordenar(array) {
+
+        mostrarArray(array)
+    }
+
+
+    function pesquisar(numero) {
+        for (let i = 0; i < numeros.length; i++) {
+            if (numeros[i] == numero) {
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    function mostarPosicao(){
+        
+        let numeroProcurado = document.getElementById('numeroProcurado')
+            document.getElementById('resultado').value = pesquisar(numeroProcurado.value)
+    
+    }
+
+    
+    function excluir(){
+            let numeroExcluir = document.getElementById('numeroExcluir')
+            let posicao = pesquisar(numeroExcluir.value)
+           
+            if(posicao >= 0){
+            numeros.splice(posicao,1)
+    
+            numerosVar = numeros
+            mostrarArray(numerosVar)}
+    }
+
+    
+
+
+</script>
+
+</html>
